@@ -12,7 +12,7 @@ void DataLogger::log(const std::vector<std::pair<std::string, double>>& data) {
     auto tm = *std::localtime(&t);
 
     char buffer[64];
-    std::strftime(buffer, sizeof(buffer), "&Y-%m-%d %H:%M:%S", &tm);
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &tm);
 
     for (const auto& [name, value] : data) {
         file_ << buffer << "," << name << "," << value << "\n";
